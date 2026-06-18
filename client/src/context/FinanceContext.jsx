@@ -8,6 +8,7 @@ export const FinanceProvider = ({ children }) => {
     const [transactions, setTransactions] = useState([]);
     const [summary, setSummary] = useState(null);
     const [budgetLimit, setBudgetLimit] = useState(0);
+    const [goals, setGoals] = useState([]);
     const { token, user } = useContext(AuthContext);
 
     const fetchTransactions = async (month) => {
@@ -68,18 +69,73 @@ export const FinanceProvider = ({ children }) => {
         }
     };
 
+    const toggleRepaymentStatus = async (id, currentRepaidStatus) => {
+        try {
+            const res = await api.put(`/transactions/${id}`, { isRepaid: !currentRepaidStatus });
+            setTransactions(transactions.map(t => t._id === id ? res.data : t));
+            return res.data;
+        } catch (error) {
+            console.error('Failed to toggle repayment status', error);
+            throw error;
+        }
+    };
+
+    const fetchGoals = async () => {
+        try {
+            const res = await api.get('/goals');
+            setGoals(res.data);
+        } catch (error) {
+            console.error('Failed to fetch goals', error);
+        }
+    };
+
+    const addGoal = async (goalData) => {
+        try {
+            const res = await api.post('/goals', goalData);
+            setGoals([...goals, res.data]);
+            return res.data;
+        } catch (error) {
+            throw error;
+        }
+    };
+
+    const editGoal = async (id, goalData) => {
+        try {
+            const res = await api.put(`/goals/${id}`, goalData);
+            setGoals(goals.map(g => g._id === id ? res.data : g));
+            return res.data;
+        } catch (error) {
+            throw error;
+        }
+    };
+
+    const deleteGoal = async (id) => {
+        try {
+            await api.delete(`/goals/${id}`);
+            setGoals(goals.filter(g => g._id !== id));
+        } catch (error) {
+            throw error;
+        }
+    };
+
     return (
         <FinanceContext.Provider
             value={{
                 transactions,
                 summary,
                 budgetLimit,
+                goals,
                 fetchTransactions,
                 fetchSummary,
                 addTransaction,
                 editTransaction,
                 deleteTransaction,
-                updateBudget
+                updateBudget,
+                toggleRepaymentStatus,
+                fetchGoals,
+                addGoal,
+                editGoal,
+                deleteGoal
             }}
         >
             {children}

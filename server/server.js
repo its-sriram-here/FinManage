@@ -1,10 +1,17 @@
+const dns = require('dns');
+if (dns.setDefaultResultOrder) {
+    dns.setDefaultResultOrder('ipv4first');
+}
+
 const express = require('express');
 const dotenv = require('dotenv');
 const cors = require('cors');
 const connectDB = require('./config/db.js');
 
+const path = require('path');
+
 // Load env vars
-dotenv.config();
+dotenv.config({ path: path.join(__dirname, '.env') });
 
 // Connect to database
 connectDB();
@@ -19,6 +26,7 @@ app.use(cors());
 app.use('/api/auth', require('./routes/authRoutes.js'));
 app.use('/api/transactions', require('./routes/transactionRoutes.js'));
 app.use('/api/budgets', require('./routes/budgetRoutes.js'));
+app.use('/api/goals', require('./routes/goalRoutes.js'));
 
 // Serve Static Assets in Production
 if (process.env.NODE_ENV === 'production') {

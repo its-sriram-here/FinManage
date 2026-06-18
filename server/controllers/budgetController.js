@@ -65,7 +65,7 @@ const getDashboardSummary = async (req, res, next) => {
         const endDate = new Date(startDate);
         endDate.setMonth(endDate.getMonth() + 1);
 
-        // MongoDB Aggregation for Monthly Summary
+        // MongoDB Aggregation for Monthly Summary (Income vs Expense vs Lending)
         const summary = await Transaction.aggregate([
             {
                 $match: {
@@ -83,13 +83,103 @@ const getDashboardSummary = async (req, res, next) => {
 
         let totalIncome = 0;
         let totalExpense = 0;
+        let totalLent = 0;
 
         summary.forEach((item) => {
             if (item._id === 'income') totalIncome = item.totalAmount;
             if (item._id === 'expense') totalExpense = item.totalAmount;
+            if (item._id === 'lend') totalLent = item.totalAmount;
         });
 
         const netSavings = totalIncome - totalExpense;
+
+        // Calculate outstanding pending lending for this month
+        const pendingLendAmount = await Transaction.aggregate([
+            {
+                $match: {
+                    user: new mongoose.Types.ObjectId(req.user.id),
+                    type: 'lend',
+                    isRepaid: false,
+                    date: { $gte: startDate, $lt: endDate }
+                }
+            },
+            {
+                $group: {
+                    _id: null,
+                    total: { $sum: '$amount' }
+                }
+            }
+        ]);
+        const totalLentPending = pendingLendAmount.length > 0 ? pendingLendAmount[0].total : 0;
+
+        // Calculate all-time outstanding pending lending (across all months)
+        const allTimePendingLendAmount = await Transaction.aggregate([
+            {
+                $match: {
+                    user: new mongoose.Types.ObjectId(req.user.id),
+                    type: 'lend',
+                    isRepaid: false
+                }
+            },
+            {
+                $group: {
+                    _id: null,
+                    total: { $sum: '$amount' }
+                }
+            }
+        ]);
+        const totalAllTimeLentPending = allTimePendingLendAmount.length > 0 ? allTimePendingLendAmount[0].total : 0;
+
+        // Category breakdown aggregation for expenses
+        const categoryBreakdown = await Transaction.aggregate([
+            {
+                $match: {
+                    user: new mongoose.Types.ObjectId(req.user.id),
+                    type: 'expense',
+                    date: { $gte: startDate, $lt: endDate }
+                }
+            },
+            {
+                $group: {
+                    _id: '$category',
+                    value: { $sum: '$amount' }
+                }
+            },
+            {
+                $project: {
+                    name: '$_id',
+                    value: 1,
+                    _id: 0
+                }
+            }
+        ]);
+
+        // Daily spending aggregation for expenses
+        const dailySpending = await Transaction.aggregate([
+            {
+                $match: {
+                    user: new mongoose.Types.ObjectId(req.user.id),
+                    type: 'expense',
+                    date: { $gte: startDate, $lt: endDate }
+                }
+            },
+            {
+                $group: {
+                    _id: { $dateToString: { format: '%Y-%m-%d', date: '$date' } },
+                    amount: { $sum: '$amount' }
+                }
+            },
+            {
+                $sort: { _id: 1 }
+            },
+            {
+                $project: {
+                    date: '$_id',
+                    amount: 1,
+                    _id: 0
+                }
+            }
+        ]);
 
         // Fetch budget if any
         const budget = await Budget.findOne({ user: req.user.id, month });
@@ -98,8 +188,13 @@ const getDashboardSummary = async (req, res, next) => {
             month,
             totalIncome,
             totalExpense,
+            totalLent,
+            totalLentPending,
+            totalAllTimeLentPending,
             netSavings,
             budgetLimit: budget ? budget.limit : 0,
+            categoryBreakdown,
+            dailySpending
         });
     } catch (error) {
         next(error);

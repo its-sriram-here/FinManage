@@ -23,6 +23,15 @@ const userSchema = new mongoose.Schema({
     createdAt: {
         type: Date,
         default: Date.now
+    },
+    securityQuestion: {
+        type: String,
+        required: [true, 'Please select or write a security question']
+    },
+    securityAnswer: {
+        type: String,
+        required: [true, 'Please provide a security answer'],
+        select: false
     }
 });
 

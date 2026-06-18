@@ -8,8 +8,15 @@ const transactionSchema = new mongoose.Schema({
     },
     type: {
         type: String,
-        enum: ['income', 'expense'],
-        required: [true, 'Please specify transaction type (income or expense)']
+        enum: ['income', 'expense', 'lend'],
+        required: [true, 'Please specify transaction type (income, expense, or lend)']
+    },
+    lentTo: {
+        type: String
+    },
+    isRepaid: {
+        type: Boolean,
+        default: false
     },
     amount: {
         type: Number,

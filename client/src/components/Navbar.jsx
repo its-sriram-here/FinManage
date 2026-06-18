@@ -25,13 +25,13 @@ const Navbar = () => {
     const navLinks = [
         { name: 'Dashboard', path: '/' },
         { name: 'Transactions', path: '/transactions' },
+        { name: 'Goals', path: '/goals' },
     ];
 
     const isActive = (path) => location.pathname === path;
 
     return (
-        <nav className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 backdrop-blur-md shadow-sm border-b border-slate-200/50 py-2' : 'bg-transparent py-4'
-            }`}>
+        <nav className="sticky top-0 z-50 bg-white border-b border-slate-200 shadow-sm py-3 transition-all duration-300">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-16">
                     <div className="flex items-center gap-8">
@@ -39,7 +39,7 @@ const Navbar = () => {
                             <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center text-white shadow-lg group-hover:scale-105 transition-transform">
                                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                             </div>
-                            <span className="text-xl font-bold font-display tracking-tight text-slate-900 group-hover:premium-gradient-text transition-all">
+                            <span className="text-xl font-bold font-display tracking-tight text-slate-900 group-hover:bg-gradient-to-r group-hover:from-primary group-hover:to-secondary group-hover:bg-clip-text group-hover:text-transparent transition-all">
                                 FinManage
                             </span>
                         </Link>
@@ -115,7 +115,7 @@ const Navbar = () => {
             </div>
 
             {/* Mobile Menu */}
-            <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isMobileMenuOpen ? 'max-h-96 opacity-100 border-b border-slate-200 bg-white shadow-xl' : 'max-h-0 opacity-0'
+            <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isMobileMenuOpen ? 'max-h-[30rem] border-b border-slate-200/60 bg-white shadow-xl' : 'max-h-0'
                 }`}>
                 <div className="px-4 pt-4 pb-8 space-y-3">
                     {user ? (
@@ -125,13 +125,13 @@ const Navbar = () => {
                                     key={link.path}
                                     to={link.path}
                                     onClick={() => setIsMobileMenuOpen(false)}
-                                    className={`block px-4 py-3 rounded-xl text-base font-bold transition-all ${isActive(link.path) ? 'bg-primary/5 text-primary border-l-4 border-primary' : 'text-slate-600 hover:bg-slate-50'
+                                    className={`block px-4 py-3 rounded-xl text-base font-bold transition-all duration-200 ${isActive(link.path) ? 'bg-primary/5 text-primary border-l-4 border-primary pl-5' : 'text-slate-600 hover:bg-slate-50/60 hover:pl-5'
                                         }`}
                                 >
                                     {link.name}
                                 </Link>
                             ))}
-                            <div className="pt-4 mt-4 border-t border-slate-100">
+                            <div className="pt-4 mt-4 border-t border-slate-200/50">
                                 <div className="flex items-center justify-between px-4 mb-4">
                                     <div>
                                         <div className="text-sm font-bold text-slate-900">{user.name}</div>
@@ -141,14 +141,14 @@ const Navbar = () => {
                                 <Link
                                     to="/settings"
                                     onClick={() => setIsMobileMenuOpen(false)}
-                                    className="w-full py-4 rounded-xl text-base font-bold text-slate-700 bg-slate-50 hover:bg-slate-100 transition-colors flex items-center justify-center gap-2 mb-3"
+                                    className="w-full py-3.5 rounded-xl text-base font-bold text-slate-700 bg-slate-100/70 hover:bg-slate-100 transition-colors flex items-center justify-center gap-2 mb-3 shadow-sm"
                                 >
                                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
                                     Settings
                                 </Link>
                                 <button
                                     onClick={handleLogout}
-                                    className="w-full py-4 rounded-xl text-base font-bold text-rose-600 bg-rose-50 hover:bg-rose-100 transition-colors"
+                                    className="w-full py-3.5 rounded-xl text-base font-bold text-rose-600 bg-rose-50 hover:bg-rose-100 transition-colors shadow-sm"
                                 >
                                     Logout
                                 </button>

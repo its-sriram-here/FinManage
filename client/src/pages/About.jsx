@@ -6,6 +6,8 @@ const About = () => {
         {
             name: 'MongoDB',
             desc: 'Scalable NoSQL Database',
+            colorClass: 'hover:border-emerald-500/30 hover:shadow-emerald-500/5 hover:shadow-xl',
+            bgClass: 'bg-emerald-50/70 text-emerald-500 border-emerald-100',
             icon: (
                 <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M17.1932 9.53509C15.6321 4.2981 12.569 0.40356 12.317 0.0872205C12.148 -0.121115 11.852 -0.121115 11.683 0.0872205C11.431 0.40356 8.36785 4.2981 6.80677 9.53509C5.2457 14.7721 9.07993 19.3894 11.4552 20.6514C11.6422 20.7512 11.8542 20.8033 12.0692 20.8033C12.2842 20.8033 12.4962 20.7512 12.6832 20.6514C15.0584 19.3894 18.7543 14.7721 17.1932 9.53509Z" fill="#47A248" />
@@ -16,6 +18,8 @@ const About = () => {
         {
             name: 'Express.js',
             desc: 'Secure Backend Runtime',
+            colorClass: 'hover:border-slate-800/30 hover:shadow-slate-800/5 hover:shadow-xl',
+            bgClass: 'bg-slate-50/70 text-slate-800 border-slate-200/60',
             icon: (
                 <svg className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                     <path d="M0 0h24v24H0V0zm1.3 6.9h2.3l1.8 4.3 1.8-4.3h2.3l-2.8 6.4v4.3H4.4v-4.3L1.3 6.9zm13.6 0v10.7h-2.3v-4.2h-3.4v4.2H6.9V6.9h2.3V11h3.4V6.9h2.4zm5.8 1.9c-.8 0-1.4.3-1.9.8V6.9h-2.3v10.7h2.3v-4.4c.5.5 1.1.8 1.9.8 1.6 0 2.9-1.3 2.9-4 0-2.6-1.3-4-2.9-4zm-1.1 5.3c-.6 0-1-.3-1-.9 0-.5.4-.9 1-.9.5 0 .9.4.9.9s-.4.9-.9.9z" />
@@ -25,6 +29,8 @@ const About = () => {
         {
             name: 'React.js',
             desc: 'Dynamic User Interfaces',
+            colorClass: 'hover:border-sky-500/30 hover:shadow-sky-500/5 hover:shadow-xl',
+            bgClass: 'bg-sky-50/70 text-sky-500 border-sky-100',
             icon: (
                 <svg className="w-8 h-8" viewBox="-11.5 -10.23174 23 20.46348" fill="#61DAFB">
                     <circle cx="0" cy="0" r="2.05" fill="#61DAFB" />
@@ -39,6 +45,8 @@ const About = () => {
         {
             name: 'Node.js',
             desc: 'Blazing Fast Server Engine',
+            colorClass: 'hover:border-emerald-500/30 hover:shadow-emerald-500/5 hover:shadow-xl',
+            bgClass: 'bg-emerald-50/70 text-emerald-600 border-emerald-100',
             icon: (
                 <svg className="w-8 h-8" viewBox="0 0 24 24" fill="#339933" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12 0l10.4 6v12L12 24l-10.4-6V6L12 0zm8.6 7.1L12 2.3 3.4 7.1v9.8l8.6 4.8 8.6-4.8V7.1zM6.6 9.6v4.8l2.9 1.7V11l2.4 1.4v4.9l2.9 1.6V9l-2.9-1.7v4.9l-2.4-1.4V9.6l-2.9 0z" />
@@ -48,6 +56,8 @@ const About = () => {
         {
             name: 'Tailwind CSS',
             desc: 'Premium Visual Styling',
+            colorClass: 'hover:border-cyan-500/30 hover:shadow-cyan-500/5 hover:shadow-xl',
+            bgClass: 'bg-cyan-50/70 text-cyan-500 border-cyan-100',
             icon: (
                 <svg className="w-8 h-8" viewBox="0 0 24 24" fill="#06B6D4" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C7.666 17.818 9.027 19 12.001 19c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z" />
@@ -57,6 +67,8 @@ const About = () => {
         {
             name: 'JWT Auth',
             desc: 'Advanced Session Security',
+            colorClass: 'hover:border-rose-500/30 hover:shadow-rose-500/5 hover:shadow-xl',
+            bgClass: 'bg-rose-50/70 text-rose-500 border-rose-100',
             icon: (
                 <svg className="w-8 h-8" viewBox="0 0 24 24" fill="#FB015B" xmlns="http://www.w3.org/2000/svg">
                     <path d="M7 11v2h10v-2H7zm5-11L3.5 4.5V11c0 5.25 3.62 10.16 8.5 11.5 4.88-1.34 8.5-6.25 8.5-11.5V4.5L12 0zm6.5 11c0 4.15-2.6 8.04-6.5 9.25-3.9-1.21-6.5-5.1-6.5-9.25V5.64L12 2.64l12 3v5.36z" />
@@ -91,35 +103,35 @@ const About = () => {
             name: 'Portfolio',
             url: 'https://its-sriram-here.vercel.app/',
             icon: (
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg>
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg>
             )
         },
         {
             name: 'Email',
             url: 'mailto:srirammurugesan1807@gmail.com',
             icon: (
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
             )
         },
     ];
 
     return (
-        <div className="space-y-24 animate-fade-in pb-20">
+        <div className="space-y-28 animate-fade-in pb-24">
 
             {/* Hero Section */}
             <section className="relative overflow-hidden pt-12">
                 <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 blur-[120px] rounded-full -mr-48 -mt-48"></div>
 
-                <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto px-4">
-                    <div className="space-y-8 text-center lg:text-left">
+                <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center max-w-6xl mx-auto px-4">
+                    <div className="lg:col-span-7 space-y-8 text-center lg:text-left">
                         <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest">
                             Meet the Creator
                         </div>
-                        <h1 className="text-6xl font-black tracking-tight text-slate-900 font-display leading-[1.1]">
+                        <h1 className="text-5xl sm:text-6xl font-black tracking-tight text-slate-900 font-display leading-[1.1]">
                             Building Wealth <br />
-                            <span className="premium-gradient-text italic">One Bit at a Time</span>
+                            <span className="premium-gradient-text italic font-normal">One Bit at a Time</span>
                         </h1>
-                        <p className="text-xl text-slate-500 font-medium leading-relaxed max-w-xl">
+                        <p className="text-lg sm:text-xl text-slate-500 font-medium leading-relaxed max-w-xl">
                             I'm <span className="text-slate-900 font-bold">Sriram</span>, a MERN Stack developer passionate about crafting pixel-perfect, highly scalable financial solutions.
                         </p>
 
@@ -140,17 +152,21 @@ const About = () => {
                         </div>
                     </div>
 
-                    <div className="relative mx-auto lg:ml-auto">
-                        <div className="absolute -inset-4 bg-gradient-to-tr from-primary to-secondary opacity-30 blur-2xl"></div>
-                        <div className="relative w-80 h-96 rounded-[3rem] overflow-hidden border-8 border-white shadow-2xl">
-                            <img
-                                src={profileImg}
-                                alt="Sriram"
-                                className="w-full h-full object-cover grayscale transition-all duration-700"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent"></div>
-                            <div className="absolute bottom-8 left-8 right-8 text-white">
-                                <div className="text-3xl font-bold font-display">Sriram</div>
+                    {/* Creative Photo Container */}
+                    <div className="lg:col-span-5 relative mx-auto lg:ml-auto group">
+                        <div className="absolute -inset-4 bg-gradient-to-tr from-primary via-secondary to-pink-500 opacity-20 blur-3xl rounded-[3rem] group-hover:opacity-40 transition-opacity duration-500"></div>
+                        <div className="relative w-[280px] sm:w-80 h-[26rem] p-1.5 bg-gradient-to-tr from-primary via-secondary to-pink-500 rounded-[3.2rem] shadow-2xl transition-all duration-500 group-hover:scale-[1.02] group-hover:shadow-primary/20">
+                            <div className="w-full h-full bg-white rounded-[2.8rem] overflow-hidden relative">
+                                <img
+                                    src={profileImg}
+                                    alt="Sriram"
+                                    className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-slate-900/20 to-transparent"></div>
+                                <div className="absolute bottom-8 left-8 right-8 text-white">
+                                    <div className="text-3xl font-bold font-display tracking-tight">Sriram</div>
+                                    <p className="text-xs font-semibold text-slate-350 uppercase tracking-widest mt-1">Creator & Developer</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -159,7 +175,7 @@ const About = () => {
 
             {/* App Mission Section */}
             <section className="max-w-6xl mx-auto px-4">
-                <div className="glass-card p-12 md:p-16 rounded-[4rem] relative overflow-hidden group">
+                <div className="glass-card p-8 md:p-16 rounded-[2.5rem] md:rounded-[4rem] relative overflow-hidden group shadow-xl border-slate-100">
                     <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 blur-3xl opacity-50"></div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-12 relative z-10">
@@ -172,11 +188,11 @@ const About = () => {
                                 Our architecture focuses on <span className="text-slate-900 font-bold">real-time insights</span>, <span className="text-slate-900 font-bold">secure data isolation</span>, and <span className="text-slate-900 font-bold">automated financial discipline</span> through intelligent budgeting.
                             </p>
                         </div>
-                        <div className="bg-slate-900 rounded-[3rem] p-8 text-white flex flex-col justify-center items-center text-center space-y-4 shadow-2xl shadow-slate-200">
-                            <div className="text-5xl font-black text-primary-light font-display">100%</div>
+                        <div className="bg-slate-900 rounded-[3rem] p-8 text-white flex flex-col justify-center items-center text-center space-y-4 shadow-2xl shadow-slate-900/20">
+                            <div className="text-5xl font-black text-primary font-display">100%</div>
                             <div className="text-xs font-bold uppercase tracking-widest text-slate-400">Open Architecture</div>
                             <div className="w-12 h-1 bg-primary rounded-full"></div>
-                            <p className="text-[10px] text-slate-500 font-bold leading-relaxed px-4">Securely encrypted & highly optimized performance.</p>
+                            <p className="text-[10px] text-slate-400 font-semibold leading-relaxed px-4">Securely encrypted & highly optimized performance.</p>
                         </div>
                     </div>
                 </div>
@@ -184,19 +200,26 @@ const About = () => {
 
             {/* Engineering Section */}
             <section className="max-w-6xl mx-auto px-4 space-y-12">
-                <div className="text-center space-y-2">
-                    <h2 className="text-sm font-black uppercase tracking-[0.4em] text-slate-400">Under the Hood</h2>
-                    <p className="text-4xl font-extrabold text-slate-900 font-display italic">Modern Stack. Robust Logic.</p>
+                <div className="text-center space-y-3">
+                    <h2 className="text-xs font-black uppercase tracking-[0.4em] text-slate-400">Under the Hood</h2>
+                    <p className="text-3xl sm:text-4xl font-extrabold text-slate-900 font-display italic">Modern Stack. Robust Logic.</p>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {techStack.map((tech) => (
-                        <div key={tech.name} className="glass-card p-10 rounded-[2.5rem] bg-white shadow-sm border-slate-100">
-                            <div className="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center mb-6">
+                        <div 
+                            key={tech.name} 
+                            className={`glass-card p-6 rounded-2xl bg-white border border-slate-100/60 hover:-translate-y-1 transition-all duration-300 hover:shadow-xl group ${tech.colorClass}`}
+                        >
+                            <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 border transition-all [&>svg]:w-6 [&>svg]:h-6 ${tech.bgClass}`}>
                                 {tech.icon}
                             </div>
-                            <h3 className="text-xl font-bold text-slate-900 mb-2 font-display">{tech.name}</h3>
-                            <p className="text-sm text-slate-500 font-medium leading-relaxed">{tech.desc}</p>
+                            <h3 className="text-lg font-bold text-slate-900 mb-1.5 font-display transition-colors">
+                                {tech.name}
+                            </h3>
+                            <p className="text-xs text-slate-500 font-medium leading-relaxed">
+                                {tech.desc}
+                            </p>
                         </div>
                     ))}
                 </div>
@@ -204,15 +227,18 @@ const About = () => {
 
             {/* Call to Action */}
             <section className="max-w-4xl mx-auto px-4 text-center">
-                <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-[3rem] p-12 text-white relative overflow-hidden">
+                <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 rounded-[3rem] p-12 text-white relative overflow-hidden shadow-2xl">
                     <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
+                    <div className="absolute -top-32 -right-32 w-64 h-64 bg-primary/20 blur-3xl rounded-full"></div>
+                    <div className="absolute -bottom-32 -left-32 w-64 h-64 bg-secondary/20 blur-3xl rounded-full"></div>
+                    
                     <h2 className="text-3xl font-extrabold font-display mb-6 relative z-10">Interested in Collaboration?</h2>
-                    <p className="text-slate-400 font-medium mb-10 max-w-lg mx-auto relative z-10">
+                    <p className="text-slate-450 font-medium mb-10 max-w-lg mx-auto relative z-10">
                         I'm always open to discussing technical architecture or new project opportunities.
                     </p>
                     <a
                         href="mailto:srirammurugesan1807@gmail.com"
-                        className="inline-block px-12 py-5 bg-white text-slate-900 font-black rounded-2xl hover:bg-primary-dark hover:text-white transition-all duration-300 shadow-xl shadow-slate-950/20 active:scale-95 relative z-10"
+                        className="inline-block px-12 py-5 bg-white text-slate-900 font-black rounded-2xl hover:bg-slate-900 hover:text-white border border-transparent hover:border-white/20 transition-all duration-300 shadow-xl shadow-slate-950/20 active:scale-95 relative z-10"
                     >
                         Get in Touch
                     </a>

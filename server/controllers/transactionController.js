@@ -37,7 +37,7 @@ const createTransaction = async (req, res, next) => {
             return res.status(400).json({ errors: errors.array() });
         }
 
-        const { type, amount, category, description, date } = req.body;
+        const { type, amount, category, description, date, lentTo, isRepaid } = req.body;
 
         const transaction = await Transaction.create({
             user: req.user.id,
@@ -46,6 +46,8 @@ const createTransaction = async (req, res, next) => {
             category,
             description,
             date,
+            lentTo,
+            isRepaid,
         });
 
         res.status(201).json(transaction);
